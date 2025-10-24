@@ -60,8 +60,6 @@ window.addEventListener("load", () => {
   document.getElementById("refresh-btn").onclick = () =>
     output(kc.refreshTokenParsed);
   document.getElementById("invoke-btn").onclick = sendRequest;
-
-  setInterval(() => {
-    kc.updateToken(60).catch(() => kc.login());
-  }, 60000);
+  document.getElementById("refresh-session-btn").onclick = () =>
+    kc.updateToken();
 });
