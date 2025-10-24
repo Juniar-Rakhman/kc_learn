@@ -17,8 +17,9 @@
     <button id="access-token-btn">Show Access Token</button>
     <button id="refresh-btn">Show Refresh Token</button>
     <hr />
-    <button id="refresh-session-btn">Refresh Session</button>
-    <button id="invoke-btn">Invoke Service</button>
+    <button id="public-btn">Call public endpoint</button>
+    <button id="private-btn">Call protected endpoint</button>
+    <button id="role-btn">Call role protected endpoint</button>
     <hr />
     <h2 id="name"></h2>
     <img id="picture" width="50" height="50" />
@@ -26,7 +27,6 @@
     <pre id="output"></pre>
   </div>
 
-  <!-- ✅ Load our Keycloak-enabled client -->
   <script type="module" src="/client.js"></script>
 </body>
 

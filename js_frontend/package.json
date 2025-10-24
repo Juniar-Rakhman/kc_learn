@@ -2,14 +2,9 @@
   "name": "frontend",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^5.1.0",
     "keycloak-js": "^26.2.1",

@@ -1,5 +1,7 @@
 import Keycloak from "/keycloak-js/keycloak.js";
 
+const BACKEND_URL = "http://localhost:3000";
+
 const kc = new Keycloak({
   url: "http://localhost:8080",
   realm: "cybertron",
@@ -23,14 +25,37 @@ function profile() {
   document.getElementById("user").style.display = "block";
 }
 
-function sendRequest() {
+function sendPrivateRequest() {
   const req = new XMLHttpRequest();
   req.onreadystatechange = function () {
     if (req.readyState === 4) {
       output(req.status + "\n\n" + req.responseText);
     }
   };
-  req.open("GET", SERVICE_URL, true);
+  req.open("GET", BACKEND_URL + "/secured", true);
+  req.setRequestHeader("Authorization", "Bearer " + kc.token);
+  req.send();
+}
+
+function sendPublicRequest() {
+  const req = new XMLHttpRequest();
+  req.onreadystatechange = function () {
+    if (req.readyState === 4) {
+      output(req.status + "\n\n" + req.responseText);
+    }
+  };
+  req.open("GET", BACKEND_URL + "/public", true);
+  req.send();
+}
+
+function sendSuperSecretRequest() {
+  const req = new XMLHttpRequest();
+  req.onreadystatechange = function () {
+    if (req.readyState === 4) {
+      output(req.status + "\n\n" + req.responseText);
+    }
+  };
+  req.open("GET", BACKEND_URL + "/role-secured", true);
   req.setRequestHeader("Authorization", "Bearer " + kc.token);
   req.send();
 }
@@ -59,7 +84,7 @@ window.addEventListener("load", () => {
     output(kc.tokenParsed);
   document.getElementById("refresh-btn").onclick = () =>
     output(kc.refreshTokenParsed);
-  document.getElementById("invoke-btn").onclick = sendRequest;
-  document.getElementById("refresh-session-btn").onclick = () =>
-    kc.updateToken();
+  document.getElementById("public-btn").onclick = () => sendPublicRequest();
+  document.getElementById("private-btn").onclick = () => sendPrivateRequest();
+  document.getElementById("role-btn").onclick = () => sendSuperSecretRequest();
 });
