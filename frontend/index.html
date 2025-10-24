@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Keycloak Example Application</title>
+</head>
+
+<body>
+  <div id="anonymous" style="display: none">
+    <button id="login-btn">Login</button>
+  </div>
+
+  <div id="user" style="display: none">
+    <button id="logout-btn">Logout</button>
+    <button id="id-token-btn">Show ID Token</button>
+    <button id="access-token-btn">Show Access Token</button>
+    <button id="refresh-btn">Show Refresh Token</button>
+    <hr />
+    <button id="invoke-btn">Invoke Service</button>
+    <hr />
+    <h2 id="name"></h2>
+    <img id="picture" width="50" height="50" />
+    <hr />
+    <pre id="output"></pre>
+  </div>
+
+  <!-- ✅ Load our Keycloak-enabled client -->
+  <script type="module" src="/client.js"></script>
+</body>
+
+</html>
