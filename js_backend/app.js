@@ -53,7 +53,7 @@ app.get("/public", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  res.send("Go to either /public or /secured");
+  res.send("Go to either /public or /secured or /role-secured");
 });
 
 // Start the server on port 3000
