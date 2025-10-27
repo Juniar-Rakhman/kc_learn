@@ -33,6 +33,13 @@ var keycloak = new Keycloak({ store: memoryStore });
 // Use Keycloak middleware to handle authentication
 app.use(keycloak.middleware());
 
+app.get("/album/view", keycloak.protect(function(token, req) {
+  return token.scope && token.scope.split(' ').includes('album_view');
+}), function (req, res) {
+  res.setHeader("content-type", "text/plain");
+  res.send("Here's the album");
+});
+
 app.get(
   "/role-secured",
   keycloak.protect("realm:autobot"), // only user with realm-role of autobot can access

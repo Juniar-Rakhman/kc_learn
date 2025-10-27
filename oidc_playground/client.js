@@ -249,12 +249,14 @@ function setInput(id, value) {
 }
 
 function setOutput(id, value) {
+  var el = document.getElementById(id);
+  if (!el) return;
   if (typeof value === "object") {
     value = JSON.stringify(value, null, 2);
   } else if (value.startsWith("{")) {
     value = JSON.stringify(JSON.parse(value), null, 2);
   }
-  document.getElementById(id).innerHTML = value;
+  el.innerHTML = value;
 }
 
 function getQueryVariable(key) {
@@ -292,6 +294,7 @@ function init() {
 
   var code = getQueryVariable("code");
   if (code) {
+    step("token");
     setInput("input-code", code);
     setOutput("output-authenticationResponse", "code=" + code);
   }
@@ -299,6 +302,7 @@ function init() {
   var error = getQueryVariable("error");
   var errorDescription = getQueryVariable("error_description");
   if (error) {
+    step("authentication");
     setOutput(
       "output-authenticationResponse",
       "error=" + error + "<br/>error_description=" + errorDescription,
