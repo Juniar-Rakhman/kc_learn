@@ -2,6 +2,8 @@
 /* OAuth 2.0 functions */
 /***********************/
 
+const BACKEND_URL = "http://localhost:3000";
+
 // Load the OpenID Provider Configuration
 function loadDiscovery() {
   var issuer = getInput("input-issuer");
@@ -92,8 +94,8 @@ function invokeService() {
       }
     }
   };
-  console.debug(serviceUrl);
-  req.open("GET", serviceUrl, true);
+  console.debug("Invoke service url : " + BACKEND_URL);
+  req.open("GET", BACKEND_URL + "/album/view", true);
   req.setRequestHeader("Authorization", "Bearer " + state.accessToken);
 
   req.send();

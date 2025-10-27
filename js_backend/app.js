@@ -33,12 +33,21 @@ var keycloak = new Keycloak({ store: memoryStore });
 // Use Keycloak middleware to handle authentication
 app.use(keycloak.middleware());
 
-app.get("/album/view", keycloak.protect(function(token, req) {
-  return token.scope && token.scope.split(' ').includes('album_view');
-}), function (req, res) {
-  res.setHeader("content-type", "text/plain");
-  res.send("Here's the album");
-});
+app.get(
+  "/album/view",
+  keycloak.protect(function (token, req) {
+    // console.log("called /album/view with token : " + JSON.stringify(token));
+    console.log("called /album/view with scope : " + token.content.scope);
+    return (
+      token.content.scope &&
+      token.content.scope.split(" ").includes("albums_view")
+    );
+  }),
+  function (req, res) {
+    res.setHeader("content-type", "text/plain");
+    res.send("You can view the albums!");
+  },
+);
 
 app.get(
   "/role-secured",
@@ -60,7 +69,7 @@ app.get("/public", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  res.send("Go to either /public or /secured or /role-secured");
+  res.send("This is root");
 });
 
 // Start the server on port 3000
