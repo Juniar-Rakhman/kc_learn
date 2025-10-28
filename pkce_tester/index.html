@@ -120,7 +120,7 @@
         document.getElementById("codeVerifierValue").innerHTML;
       let data = {
         grant_type: "authorization_code",
-        client_id: "asimovo-web",
+        client_id: $("#clientId").val(),
         code: authCode,
         code_verifier: codeVerifier,
         redirect_uri: $("#redirectURL").val(),
@@ -159,13 +159,13 @@
   <div>
     <label for="authURL">Auth URL :</label>
     <input type="text" id="authURL" required size="100"
-      value="http://localhost:8080/auth/realms/cybertron/protocol/openid-connect/auth" />
+      value="http://localhost:8080/realms/cybertron/protocol/openid-connect/auth" />
   </div>
 
   <div>
     <label for="tokenURL">Token URL :</label>
     <input type="text" id="tokenURL" required size="100"
-      value="http://localhost:8080/auth/realms/cybertron/protocol/openid-connect/token" />
+      value="http://localhost:8080/realms/cybertron/protocol/openid-connect/token" />
   </div>
 
   <div>
@@ -175,12 +175,12 @@
 
   <div>
     <label for="ClientID">client id :</label>
-    <input type="text" id="clientId" required size="100" value="kubernetes" />
+    <input type="text" id="clientId" required size="100" value="myclient" />
   </div>
 
   <div>
-    <label for="ClientID">additional params :</label>
-    <input type="text" id="additionalParams" required size="100" value="aud=kubernetes" />
+    <label for="additionalParams">additional params :</label>
+    <input type="text" id="additionalParams" required size="100" value="aud=qwerty123" />
   </div>
 
   <div id="stateValue"></div>
