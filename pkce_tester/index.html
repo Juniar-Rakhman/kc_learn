@@ -102,12 +102,17 @@
       let parsedObj = parseJwt(accessToken);
       console.log(parsedObj);
 
-      document.getElementById("accessToken").innerHTML =
-        "Bearer " + accessToken;
-      document.getElementById("refresherToken").innerHTML =
-        data["refresh_token"];
+      document.getElementById("accessToken").innerHTML = JSON.stringify(
+        parseJwt(accessToken),
+      );
 
-      document.getElementById("IdToken").innerHTML = data["id_token"];
+      document.getElementById("refresherToken").innerHTML = JSON.stringify(
+        parseJwt(data["refresh_token"]),
+      );
+
+      document.getElementById("IdToken").innerHTML = JSON.stringify(
+        parseJwt(data["id_token"]),
+      );
 
       document.getElementById("expiresIn").innerHTML = data["expires_in"];
 
@@ -148,6 +153,7 @@
       let originalStateValue =
         document.getElementById("stateValue").innerHTML;
       if (state === originalStateValue) {
+        alert("Valid state value received.");
         requestTokens(authCode);
       } else {
         alert("Invalid state value received.");
