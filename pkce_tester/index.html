@@ -106,8 +106,11 @@
         "Bearer " + accessToken;
       document.getElementById("refresherToken").innerHTML =
         data["refresh_token"];
+
       document.getElementById("IdToken").innerHTML = data["id_token"];
+
       document.getElementById("expiresIn").innerHTML = data["expires_in"];
+
       document.getElementById("refreshExpiresIn").innerHTML =
         data["refresh_expires_in"];
       document.getElementById("username").innerHTML =
