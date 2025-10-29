@@ -181,7 +181,7 @@ participant ResourceServer as Resource Server (API)
 
 <!-- end_slide -->
 
-### 2️⃣ Implicit Flow _(Deprecated)_
+### 2. Implicit Flow _(Deprecated)_
 
 ---
 
@@ -193,7 +193,7 @@ participant ResourceServer as Resource Server (API)
 
 <!-- end_slide -->
 
-### 3️⃣ Direct Access Grants (Password Grant)
+### 3. Direct Access Grants (Password Grant)
 
 ---
 
@@ -207,7 +207,7 @@ participant ResourceServer as Resource Server (API)
 
 <!-- end_slide -->
 
-### 4️⃣ Client Credentials (Service Accounts)
+### 4. Client Credentials (Service Accounts)
 
 ---
 
@@ -221,7 +221,7 @@ participant ResourceServer as Resource Server (API)
 
 <!-- end_slide -->
 
-### 5️⃣ Device Authorization Flow
+### 5. Device Authorization Flow
 
 ---
 
@@ -234,7 +234,7 @@ participant ResourceServer as Resource Server (API)
 
 <!-- end_slide -->
 
-### 6️⃣ CIBA (Client-Initiated Backchannel Authentication)
+### 6. CIBA (Client-Initiated Backchannel Authentication)
 
 ---
 
@@ -247,10 +247,12 @@ participant ResourceServer as Resource Server (API)
 
 <!-- end_slide -->
 
-## 🧰 OAuth & OIDC Best Practices
+## OAuth & OIDC Best Practices
 
 ---
 
+- 🤖 Avoid vibe coding!
+- 🚫 Do Not Roll Your Own Auth!
 - ✅ Use **proven libraries and frameworks** (e.g., Spring Security, Keycloak adapters)
 - ✅ **Request minimal scopes** — principle of least privilege
 - ✅ Use **PKCE** for public clients (SPAs, mobile)
@@ -263,8 +265,6 @@ participant ResourceServer as Resource Server (API)
 - 🔒 Keep tokens out of URLs and localStorage (use memory/session).
 - ♻️ Use **refresh token rotation** to reduce replay risk.
 - 🧾 Enable **OIDC scopes** (`openid`, `profile`, `email`) for user identity.
-- 🤖 Avoid vibe coding!
-- 🚫 Do Not Roll Your Own Auth!
 
 <!-- end_slide -->
 
@@ -301,7 +301,7 @@ When you register a client:
 
 <!-- end_slide -->
 
-## 🧑🏻‍💻 AUTH 2.0 & OIDC Playground Demo
+## 🧑🏻‍💻 Auth 2.0 & OIDC Demo
 
 ---
 
