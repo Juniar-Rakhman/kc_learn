@@ -158,7 +158,7 @@ Choosing the correct flow depends on:
 
 ```mermaid +render
 sequenceDiagram
-participant User
+Actor User
 participant ClientApp as Client Application
 participant AuthServer as Auth Server (Keycloak)
 participant ResourceServer as Resource Server (API)
@@ -263,8 +263,8 @@ participant ResourceServer as Resource Server (API)
 - 🔒 Keep tokens out of URLs and localStorage (use memory/session).
 - ♻️ Use **refresh token rotation** to reduce replay risk.
 - 🧾 Enable **OIDC scopes** (`openid`, `profile`, `email`) for user identity.
-
-- 🚫 Do Not Roll Your Own Auth Service!
+- 🤖 Avoid vibe coding!
+- 🚫 Do Not Roll Your Own Auth!
 
 <!-- end_slide -->
 
@@ -351,7 +351,7 @@ PKCE is an **extension of the Authorization Code Flow**
 
 ```mermaid +render
 sequenceDiagram
-participant User
+Actor User
 participant ClientApp as Client (SPA / Mobile App)
 participant AuthServer as Authorization Server (Keycloak)
 participant ResourceServer as Resource Server (API)
@@ -374,7 +374,6 @@ participant ResourceServer as Resource Server (API)
     ClientApp->>ResourceServer: GET /user<br/>Authorization: Bearer access_token
     ResourceServer-->>ClientApp: Protected resource (e.g., user profile)
 
-    Note over ClientApp: Tokens stored securely (e.g., memory only)
 ```
 
 <!-- end_slide -->
