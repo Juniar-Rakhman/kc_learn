@@ -185,25 +185,25 @@ participant ResourceServer as Resource Server (API)
 
 ---
 
-- Tokens are returned **directly in the URL**.
+- User authenticates via browser redirect, token are returned **directly in the URL**.
 - No token exchange step.
+- insecure - token exposed in the URL
 
-⚠️ Deprecated in OAuth 2.1 due to security risks.
+⚠️ Deprecated in OAuth 2.1.
+
 ✅ Use Authorization Code + PKCE instead.
 
 <!-- end_slide -->
 
-### 3. Direct Access Grants (Password Grant)
+### 3. Direct Access Grants (Password Grant) _(Deprecated)_
 
 ---
 
-- User sends **username + password** directly to client → gets token.
+- User sends **username + password** directly to client.
+- receives access token via HTTP POST response.
+- insecure - client gets the password
 
-✅ Best for:
-
-- **Trusted apps** (CLI tools, internal automation)
-
-⚠️ Avoid for browser-based or public apps — exposes credentials.
+⚠️ Deprecated in OAuth 2.1.
 
 <!-- end_slide -->
 
@@ -265,6 +265,8 @@ participant ResourceServer as Resource Server (API)
 - 🔒 Keep tokens out of URLs and localStorage (use memory/session).
 - ♻️ Use **refresh token rotation** to reduce replay risk.
 - 🧾 Enable **OIDC scopes** (`openid`, `profile`, `email`) for user identity.
+
+- ✅ Read More : https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html.
 
 <!-- end_slide -->
 
