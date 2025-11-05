@@ -57,7 +57,7 @@ Understanding modern authentication and authorization using **Keycloak**
 
 There are 3 tokens used in OpenID Connect:
 
-- **ID Token** → JWT with user identity claims (`sub`, `email`, `name`, etc.) -> Mainly for UIs
+- **ID Token** → JWT with user identity claims (`sub`, `email`, `name`, etc.)
 - **Access Token** → Used by the client to access APIs
 - **Refresh Token** → Used to renew access tokens (often in the background)
 
@@ -122,7 +122,7 @@ While JWT (JSON Web Token) is often used with OAuth 2.0, the OAuth 2.0 specifica
 
 <!-- end_slide -->
 
-# Authorization Flows Overview
+## Authorization Flows Overview
 
 ---
 
@@ -137,7 +137,7 @@ Choosing the correct flow depends on:
 - **User context** — whether a human is involved or it’s a machine-to-machine call
 <!-- end_slide -->
 
-## 1. Standard Flow (Authorization Code)
+### 1. Standard Flow (Authorization Code)
 
 ---
 
@@ -152,7 +152,7 @@ Choosing the correct flow depends on:
 
 <!-- end_slide -->
 
-## 🔄 Authorization Code Flow Diagram
+### 🔄 Standard (Authorization Code) Flow Diagram
 
 ---
 
